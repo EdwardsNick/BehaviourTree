@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BehaviorTree.BTStartNode NodeName="origin">
+    <BehaviorTree.SequenceNode NodeName="seq">
+        <SimpleLeaf NodeName="first" />
+        <SimpleLeaf NodeName="second" />
+        <SimpleLeaf NodeName="third" />
+        <SimpleLeaf NodeName="fourth" />
+    </BehaviorTree.SequenceNode>
+    <BehaviorTree.RandomSequence NodeName="rSeq">
+        <SimpleLeaf NodeName="first" />
+        <SimpleLeaf NodeName="second" />
+        <SimpleLeaf NodeName="third" />
+        <SimpleLeaf NodeName="fourth" />
+    </BehaviorTree.RandomSequence>
+    <BehaviorTree.Selector NodeName="sel">
+        <SimpleLeaf NodeName="first" />
+        <SimpleLeaf NodeName="second" />
+        <SimpleLeaf NodeName="third" />
+        <SimpleLeaf NodeName="fourth" />
+    </BehaviorTree.Selector>
+    <BehaviorTree.RandomSelector NodeName="rSel">
+        <SimpleLeaf NodeName="first" />
+        <SimpleLeaf NodeName="second" />
+        <SimpleLeaf NodeName="third" />
+        <SimpleLeaf NodeName="fourth" />
+    </BehaviorTree.RandomSelector>
+    <BehaviorTree.SequenceNode NodeName="seq2">
+        <BehaviorTree.FailerDecorator NodeName="failer">
+            <BehaviorTreeTests.SucceedNode NodeName="succeed" />
+        </BehaviorTree.FailerDecorator>
+    </BehaviorTree.SequenceNode>
+    <BehaviorTree.Selector NodeName="sel2">
+        <BehaviorTree.SucceederDecorator NodeName="succeeder">
+            <FailNode NodeName="fail" />
+        </BehaviorTree.SucceederDecorator>
+    </BehaviorTree.Selector>
+    <BehaviorTree.FrameInterruptDecorator Name="frameInter" frameOut="10">
+        <FrameDecoratorTester Name="frameTest" framesToCount="5" />
+    </BehaviorTree.FrameInterruptDecorator>
+    <BehaviorTree.FrameInterruptDecorator Name="frameInter2" frameOut="10">
+        <FrameDecoratorTester Name="frameTest2" framesToCount="15" />
+    </BehaviorTree.FrameInterruptDecorator>
+    <BehaviorTree.TimedDecorator Name="timeInter" timeout="5">
+        <TimeDecoratorTester Name="timeTest" time="3" />
+    </BehaviorTree.TimedDecorator>
+    <BehaviorTree.TimedDecorator Name="timeInter2" timeout="5">
+        <TimeDecoratorTester Name="timeTest2" time="7" />
+    </BehaviorTree.TimedDecorator>
+</BehaviorTree.BTStartNode>
